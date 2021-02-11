@@ -1,5 +1,5 @@
 from django.db import models
-from datetime import datetime
+from datetime import date
 
 class ContactModel(models.Model):
   listing = models.CharField(max_length=200)
