@@ -21,6 +21,7 @@ from realtors import views
 from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('blog/', include('blog.urls')),
     path('listings/', include('listings.urls')),
     path('accounts/', include('users.urls')),
     path('contacts/', include('contacts.urls')),

@@ -1,0 +1,31 @@
+ <!-- Footer -->{% load static %}
+  <footer id="main-footer" class="py-4 text-white text-center" style="background-color: #335c67;">
+    <section id="service" class="py-5  text-black">
+    <div class="container container-fluid">
+      <div class="row text-center">
+        <div class="col-md-2">
+
+          <hr>
+          <h3><img src="{% static 'img/2.jpg' %}" style="width: 100px" ></h3>
+          <p>Best Property Buy/Sell ..........</p>
+        </div>
+
+        <div class="col-md-10" >
+
+          <hr>
+          <h6><a href=""> Sitemap</a></h6>
+          <h6><a href="">Terms & Condition</a></h6>
+          <h6><a href="">Privacy Policy</a></h6>
+          <h6><a href="{% url 'blogs:listpost' %}">Blog</a></h6>
+          <h6><a href="">HelpDesk</a></h6>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+      Copyright &copy;
+    <span class="year"></span>  Real Estate
+  </footer>

@@ -1,10 +1,10 @@
 from django.shortcuts import get_object_or_404, render
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from .choices import price_choices, bedroom_choices, state_choices
-from .models import Listing
+from .models import ListingModel
 
 def index(request):
-  listings = Listing.objects.order_by('-list_date').filter(is_published=True)
+  listings = ListingModel.objects.order_by('-list_date').filter(is_published=True)
 
   paginator = Paginator(listings, 6)
   page = request.GET.get('page')
@@ -17,16 +17,14 @@ def index(request):
   return render(request, 'listings/listings.html', context)
 
 def listing(request, listing_id):
-  listing = get_object_or_404(Listing, pk=listing_id)
-
+  listing = get_object_or_404(ListingModel, pk=listing_id)
   context = {
     'listing': listing
   }
-
   return render(request, 'listings/listing.html', context)
 
 def search(request):
-  queryset_list = Listing.objects.order_by('-list_date')
+  queryset_list = ListingModel.objects.order_by('-list_date')
 
   # Keywords
   if 'keywords' in request.GET:
@@ -57,7 +55,6 @@ def search(request):
     price = request.GET['price']
     if price:
       queryset_list = queryset_list.filter(price__lte=price)
-
   context = {
     'state_choices': state_choices,
     'bedroom_choices': bedroom_choices,

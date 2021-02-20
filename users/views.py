@@ -37,7 +37,7 @@ def register(request):
       messages.error(request, 'Passwords do not match')
       return redirect('register')
   else:
-    return render(request, 'accounts/register.html')
+    return render(request, 'user/register.html')
 
 def login(request):
   if request.method == 'POST':
@@ -54,7 +54,7 @@ def login(request):
       messages.error(request, 'Invalid credentials')
       return redirect('login')
   else:
-    return render(request, 'accounts/login.html')
+    return render(request, 'user/login.html')
 
 def logout(request):
   if request.method == 'POST':
@@ -68,4 +68,4 @@ def dashboard(request):
   context = {
     'contacts': user_contacts
   }
-  return render(request, 'accounts/dashboard.html', context)
+  return render(request, 'user/dashboard.html', context)
